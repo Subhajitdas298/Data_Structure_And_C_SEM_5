@@ -29,6 +29,9 @@ int main() {
         }
     }
 
+    // free up allocated memory
+    free(arr);
+
     printf("Largest 3 nos : %d %d %d",lgst1,lgst2,lgst3);
 
     return 0;

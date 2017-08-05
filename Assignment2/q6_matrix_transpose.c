@@ -44,5 +44,13 @@ int main() {
         printf("\n");
     }
 
+    // free up memory
+    for(i=0; i<m; i++)
+        free(matrix[i]);
+    free(matrix);
+    for(i=0; i<n; i++)
+        free(transpose[i]);
+    free(transpose);
+
     return 0;
 }

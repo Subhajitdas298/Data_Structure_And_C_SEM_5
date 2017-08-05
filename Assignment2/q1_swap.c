@@ -12,10 +12,9 @@ int main() {
     printf("Given nos : %d, %d\n",a,b);
 
     swap_val(a,b);
-    printf("After swap by values attempt : %d, %d\n",a,b);
 
     swap_ref(&a,&b);
-    printf("After swap by reference attempt : %d, %d\n",a,b);
+    printf("After swap by reference : %d, %d\n",a,b);
 
     return 0;
 }
@@ -26,6 +25,7 @@ void swap_val(int num1, int num2) {
     int temp = num1;
     num1 = num2;
     num2 = temp;
+    printf("After swap by values : %d, %d\n",num1,num2);
 }
 
 // By reference swap

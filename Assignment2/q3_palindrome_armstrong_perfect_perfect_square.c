@@ -1,6 +1,12 @@
 #include<stdio.h>
 #include<math.h>
 
+int isPalindrome(int num);
+int isArmstrong(int num);
+int isPerfect(int num);
+int isPerfectSquare(int num);
+int intpow(int num, int pow);
+
 int main() {
     int n;
 

@@ -10,7 +10,7 @@ int main() {
 
     fact = factorial(n);
 
-    printf("Factorial(%d) = %d",n,fact);
+    printf("Factorial(%d) = %d\n",n,fact);
 
     return 0;
 }

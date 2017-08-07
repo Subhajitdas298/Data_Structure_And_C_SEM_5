@@ -1,5 +1,7 @@
 #include<stdio.h>
 
+int intpow(int n, int m);
+
 int main() {
     int num,pow;
 

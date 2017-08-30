@@ -2,3 +2,4 @@
 Note :
 Q1 is completed, but doubt method will be accepted or not.
 Q2 is completed, but doubt method will be accepted or not.
+Q3 is completed.

@@ -25,7 +25,7 @@ void print_fibonacci(int n) {
         return;
     }
 
-    // for start of funtion, print x and y initial values
+    // for start of function, print x and y initial values
     if(x==0) {
         printf("%d %d ",x,y);
         n-=2;

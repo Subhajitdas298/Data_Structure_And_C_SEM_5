@@ -1,10 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-int compfunc(const void *a, const void *b) {
-    return (*(int*)a-*(int*)b);
-}
-
 int main() {
     int arr1[] = {2,14,36,48,56}, arr2[] = {5,10,26,31,39,45};
     int *arr, i,j,n1,n2;
@@ -14,13 +10,22 @@ int main() {
 
     arr = (int*)malloc(sizeof(arr1)+sizeof(arr2));
 
-    for(i=0; i<sizeof(arr1)/sizeof(int); i++)
+    for(i=0; i<n1; i++)
         arr[i]=arr1[i];
 
-    for(j=i; j<i+sizeof(arr2)/sizeof(int); j++)
+    for(j=i; j<i+n2; j++)
         arr[j]=arr2[j-i];
 
-    qsort(arr,(n1+n2),sizeof(int),compfunc);
+    // sort
+    for(i = 0; i < (n1+n2-1); i++){
+        for(j = 0; j < (n1+n2-1-i); j++){
+            if(arr[j] > arr[j+1]){
+                arr[j] = arr[j] + arr[j+1];
+                arr[j+1] = arr[j] - arr[j+1];
+                arr[j] = arr[j] - arr[j+1];
+            }
+        }
+    }
 
     //Displaying elements of array 'arr1'
     printf("Array 1 is :");

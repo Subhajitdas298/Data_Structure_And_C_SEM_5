@@ -45,13 +45,13 @@ int main() {
         }
     }
 
-    printf("Given array : ");
+    printf("gamma : ");
 
     for(i = 0; i < w; i++)
         printf("%c ",gamma[i]);
     printf("\n");
 
-    printf("Non-Vowel array : ");
+    printf("delta : ");
 
     for(i = 0; i < count; i++)
         printf("%c ",delta[i]);

@@ -1,7 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-
 int isNotChecked(int no, int* checkList, int listSize) {
     int i;
     for(i = 0; i < listSize; i++)

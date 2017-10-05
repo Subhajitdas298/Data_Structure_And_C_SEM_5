@@ -8,7 +8,7 @@ int main() {
     scanf("%d %d",&m1,&n1);
 
     // dynamically allocating array for pointers to all rows
-    mx1 = (int*)malloc(m1*sizeof(int));
+    mx1 = (int**)malloc(m1*sizeof(int*));
 
     for(i=0; i<m1; i++) {
         // dynamically allocating a row
@@ -26,7 +26,7 @@ int main() {
     scanf("%d %d",&m2,&n2);
 
     // dynamically allocating array for pointers to all rows
-    mx2 = (int*)malloc(m2*sizeof(int));
+    mx2 = (int**)malloc(m2*sizeof(int*));
 
     for(i=0; i<m2; i++) {
         // dynamically allocating a row

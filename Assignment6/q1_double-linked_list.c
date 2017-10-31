@@ -2,6 +2,7 @@
 #include<stdlib.h>
 
 typedef struct node {
+    struct node* prev;
     int data;
     struct node* next;
 } Node;
@@ -12,6 +13,7 @@ void init_list(Node** list) {
 
 Node* allocate_node(int data) {
     Node* newnode = (Node*)malloc(sizeof(Node));
+    newnode->prev=NULL;
     newnode->data=data;
     newnode->next=NULL;
     return newnode;
@@ -27,6 +29,8 @@ void insert(Node** list, int data) {
     Node* head = *list;
     Node* temp=allocate_node(data);
     temp->next=head;
+    if(!empty_list(list))
+        head->prev=temp;
     *list = temp;
 }
 
@@ -41,6 +45,7 @@ void append(Node** list, int data) {
             temp = temp->next;
         }
         temp->next=allocate_node(data);
+        temp->next->prev=temp;
     }
 }
 
@@ -66,12 +71,16 @@ void display_rev(Node** list) {
     if(empty_list(list)) {
         printf("List is empty");
     } else {
-        if(temp->next!=NULL) {
-            display_rev(&(temp->next));
-        } else {
-            printf("List in reverse : ");
+        printf("List : ");
+        // getting last element
+        while(temp->next!=NULL) {
+            temp = temp->next;
         }
-        printf("%d ",temp->data);
+        // traversing back
+        while(temp!=NULL) {
+            printf("%d ",temp->data);
+            temp = temp->prev;
+        }
     }
 }
 
@@ -116,26 +125,27 @@ void sort_list(Node** list) {
     Node* temp2;
     int flag = 1;
 
-    while(temp!=NULL && temp->next!=NULL && flag) {    // continue if not blank/null
+    while(!empty_list(list) && head->next!=NULL && flag) {    // continue if not blank/null
         flag = 0;
-        temp = head->next;
-        if(head->data > temp->data) {
-            head->next = temp->next;
-            temp->next = head;
-            head = temp;
-            *list = head;
-            flag = 1;
-        }
         temp = head;
-        while(temp->next->next!=NULL) {
-            if(temp->next->data > temp->next->next->data) {
-                temp2 = temp->next->next;
-                temp->next->next = temp2->next;
-                temp2->next=temp->next;
-                temp->next = temp2;
+        while(temp->next!=NULL) {
+            if(temp->data > temp->next->data) {
+                temp->next->prev = temp->prev;
+                temp->prev=temp->next;
+                if(temp->next->next!=NULL)
+                    temp->next->next->prev=temp;
+                temp->next=temp->next->next;
+                temp->prev->next=temp;
+                if(temp!=head) {
+                    temp->prev->prev->next=temp->prev;
+                } else {
+                    head = temp->prev;
+                    *list = head;
+                }
                 flag = 1;
+            } else {
+                temp=temp->next;
             }
-            temp=temp->next;
         }
     }
 }
@@ -152,6 +162,8 @@ void dupli(Node** list) {
         while(temp2!=NULL) {
             if(temp->data == temp2->data) {
                 temp3->next=temp2->next;
+                if(temp3->next!=NULL)
+                    temp3->next->prev=temp3;
                 free(temp2);
             } else {
                 temp3=temp3->next;
@@ -217,7 +229,7 @@ void work(Node** list, char op) {
     case 7:
         printf("Enter value to search : ");
         val = getValue();
-        if(search(list,val)) printf("Value is found\n");
+        if(search(list,val)) printf("Value if found\n");
         else printf("Value is not found\n");
         break;
     case 8:

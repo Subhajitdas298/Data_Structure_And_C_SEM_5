@@ -1,0 +1,29 @@
+Group A.
+
+1
+. Circular link list implementation 
+
+  A.Insertion
+
+  B.Deletion
+
+  C.reverse 
+
+  D.sort
+2.Tower of hanoi and 8 queen problem solving (using recursion).
+
+
+
+Group B.
+ 
+1.Binary tree traversal (inorder,post order,pre order) through dma.
+
+2.Implimentation of deque (insert and delete only).
+
+
+Group C
+ 
+
+1.Calculate transpose and inverse of a matrix using dynamic memory allocation.
+
+2.polynomial multiplication using link list.

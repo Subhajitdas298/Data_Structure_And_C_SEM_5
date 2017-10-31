@@ -39,4 +39,4 @@ Step 3 : Go to New->Wmpty File-> Write your code.
 Step 4 : Go to save your code with `.c` extension.  
 Step 5 : Click on build and run to execute your program.  
 
-*Status : Ongoing*
+*Status : Finalized*
